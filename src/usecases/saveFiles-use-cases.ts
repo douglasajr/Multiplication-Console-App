@@ -5,16 +5,16 @@ interface SaveFileUseCase {
 }
 
 interface Options {
-    fileName: string,
-    directory: string
+    fileName?: string,
+    directory?: string,
+    content: string
 }
 export class SaveFile implements SaveFileUseCase {
     constructor() {
 
     }
 
-    execute(options: Options, content: string) {
-        const { fileName, directory } = options
+    execute({ fileName = 'table', directory = 'outputs', content }: Options) {
 
         try {
             fs.mkdirSync(directory, { recursive: true })
@@ -22,7 +22,7 @@ export class SaveFile implements SaveFileUseCase {
             console.log('Archivo Creado Exitosamente!!')
             return true
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             return false
         }
 

@@ -22,7 +22,7 @@ export class ServerApp {
         const { base, limit, fileName, directory } = options
 
         const table = new CreateTable().execute(options)
-        const archivo = new SaveFile().execute({ fileName: `${fileName}-${base}`, directory: directory }, table)
+        const archivo = new SaveFile().execute({ fileName: `${fileName}-${base}`, directory: directory, content: table })
 
 
         if (options.show) console.log(table)
