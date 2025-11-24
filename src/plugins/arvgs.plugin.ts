@@ -20,6 +20,18 @@ export const yarg = yargs(hideBin(process.argv),)
         type: 'boolean',
         description: 'show Multiplication table',
     })
+    .option('n', {
+        alias: 'name',
+        type: 'string',
+        default: 'table',
+        description: 'File Name',
+    })
+    .option('d', {
+        alias: 'directory',
+        type: 'string',
+        default: 'outputs',
+        description: 'show Multiplication table',
+    })
     .check((argv, options) => {
         if (argv.b < 0) throw Error('base need to be a positive number')
         if (argv.l < 0) throw Error('limit need to be a positive number')

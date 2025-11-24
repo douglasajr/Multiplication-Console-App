@@ -4,6 +4,6 @@ import { ServerApp } from "./presetation/server-app"
 
 
 (() => {
-    const { b: base, l: limit, s: show } = yarg
-    ServerApp.execute({ base, limit, show })
+    const { b: base, l: limit, s: show, d: directory, n: fileName } = yarg
+    ServerApp.execute({ base, limit, show, fileName, directory })
 })()
